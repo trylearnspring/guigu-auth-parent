@@ -1,0 +1,28 @@
+server:
+  port: 4399
+
+mybatis-plus:
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 查看日志
+  type-aliases-package: com.atguigu.model.system
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/guigu-auth?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    cluster:
+      nodes: 192.168.5.111:6379,192.168.5.111:6380,192.168.5.111:6381,192.168.5.111:6445
+    lettuce:
+      pool:
+        max-active: 10  #连接池最大连接数
+        max-idle: 8     #连接池中最大空闲连接数
+        max-wait: -1ms  #连接池最大等待阻塞时间
+        min-idle: 0     #连接池中最小空闲数
+    timeout: 5000
